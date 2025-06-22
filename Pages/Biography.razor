@@ -1,0 +1,25 @@
+﻿@page "/bio"
+@inject HttpClient HttpClient
+
+@if (bio == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <h1>@bio.Name</h1>
+    <h2>@bio.Title</h2>
+    <p>@bio.Summary</p>
+    <a href="@bio.LinkedIn" class="btn btn-primary">LinkedIn</a>
+}
+
+@code {
+    private Bio? bio;
+
+    protected override async Task OnInitializedAsync()
+    {
+        bio = await HttpClient.GetFromJsonAsync<Bio>("data/bio.json");
+    }
+
+    private record Bio(string Name, string Title, string Summary, string LinkedIn);
+}

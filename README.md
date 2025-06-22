@@ -1,2 +1,2 @@
-# filipeamda.github.io
-My personal portfolio
+# filipealmeida
+My personal professional portfolio

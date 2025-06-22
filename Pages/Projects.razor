@@ -1,0 +1,36 @@
+﻿@page "/projects"
+@inject HttpClient HttpClient
+
+<h3>My Projects</h3>
+<div class="row">
+    @if (projects == null)
+    {
+        <p>Loading...</p>
+    }
+    else
+    {
+        @foreach (var project in projects)
+        {
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h4 class="card-title">@project.Title</h4>
+                        <p class="card-text">@project.Description</p>
+                        <a href="@project.Link" class="btn btn-primary">View Project</a>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+
+@code {
+    private List<Project>? projects;
+
+    protected override async Task OnInitializedAsync()
+    {
+        projects = await HttpClient.GetFromJsonAsync<List<Project>>("data/projects.json");
+    }
+
+    private record Project(string Title, string Description, string Link);
+}

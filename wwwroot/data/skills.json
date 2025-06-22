@@ -1,0 +1,14 @@
+[
+  {
+    "name": "C#",
+    "proficiency": "Advanced"
+  },
+  {
+    "name": "Blazor",
+    "proficiency": "Intermediate"
+  },
+  {
+    "name": "ASP.NET Core",
+    "proficiency": "Advanced"
+  }
+]

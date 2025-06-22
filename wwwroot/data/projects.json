@@ -1,0 +1,12 @@
+[
+  {
+    "title": "C# App",
+    "description": "A cool C# application built with .NET Core.",
+    "link": "https://github.com/yourusername/csharp-app"
+  },
+  {
+    "title": "Blazor Portfolio",
+    "description": "My personal portfolio site built with Blazor.",
+    "link": "https://github.com/yourusername/portfolio"
+  }
+]
