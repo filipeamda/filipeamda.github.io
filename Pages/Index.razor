@@ -1,7 +1,100 @@
 ﻿@page "/"
+@inject HttpClient HttpClient
 
-<div class="container text-center my-5">
-    <h1>Welcome to My Portfolio</h1>
-    <p>Hi, I'm a C# developer showcasing my projects and skills.</p>
-    <a href="/projects" class="btn btn-primary">View My Projects</a>
+<div id="home" class="hero-section my-5 animate__animated animate__fadeIn">
+    <div class="container text-center">
+        <h1 class="display-4">Welcome to My Portfolio</h1>
+        <p class="lead">Hi, I'm a C# developer crafting innovative solutions with .NET and Blazor.</p>
+        <a href="#projects" class="btn btn-primary btn-lg">Explore My Projects</a>
+    </div>
 </div>
+
+<div id="bio" class="my-5 animate__animated animate__fadeIn">
+    <div class="container">
+        @if (bio == null)
+        {
+            <p>Loading...</p>
+        }
+        else
+        {
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title">@bio.Name</h2>
+                    <h4 class="card-subtitle mb-2 text-muted">@bio.Title</h4>
+                    <p class="card-text">@bio.Summary</p>
+                    <a href="@bio.LinkedIn" class="btn btn-primary">LinkedIn Profile</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<div id="projects" class="my-5 animate__animated animate__fadeIn">
+    <div class="container">
+        <h2>My Projects</h2>
+        <div class="row">
+            @if (projects == null)
+            {
+                <p>Loading...</p>
+            }
+            else
+            {
+                @foreach (var project in projects)
+                {
+                    <div class="col-md-4 mb-4">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body">
+                                <h4 class="card-title">@project.Title</h4>
+                                <p class="card-text">@project.Description</p>
+                                <a href="@project.Link" class="btn btn-primary">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
+
+<div id="skills" class="my-5 animate__animated animate__fadeIn">
+    <div class="container">
+        <h2>Skills</h2>
+        @if (skills == null)
+        {
+            <p>Loading...</p>
+        }
+        else
+        {
+            <div class="row">
+                @foreach (var skill in skills)
+                {
+                    <div class="col-md-4 mb-3">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title">@skill.Name</h5>
+                                <p class="card-text">Proficiency: @skill.Proficiency</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            }
+    </div>
+</div>
+
+@code {
+    private Bio? bio;
+    private List<Project>? projects;
+    private List<Skill>? skills;
+
+    protected override async Task OnInitializedAsync()
+    {
+        bio = await HttpClient.GetFromJsonAsync<Bio>("data/bio.json");
+        projects = await HttpClient.GetFromJsonAsync<List<Project>>("data/projects.json");
+        skills = await HttpClient.GetFromJsonAsync<List<Skill>>("data/skills.json");
+    }
+
+    private record Bio(string Name, string Title, string Summary, string LinkedIn);
+    private record Project(string Title, string Description, string Link);
+    private record Skill(string Name, string Proficiency);
+}
