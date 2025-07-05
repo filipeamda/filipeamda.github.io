@@ -6,9 +6,8 @@ html {
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #121212;
-    color: #e0e0e0;
-    padding-top: 70px; /* Space for fixed navbar */
+        background-color: #121212;
+        color: #e0e0e0;
 }
 
 .page {
