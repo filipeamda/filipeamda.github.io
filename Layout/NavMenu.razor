@@ -1,4 +1,6 @@
-﻿<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+﻿@inject IJSRuntime JS
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
         <a class="navbar-brand" href="#">Filipe Almeida</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,3 +24,13 @@
         </div>
     </div>
 </nav>
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JS.InvokeVoidAsync("navbarScroll.init");
+        }
+    }
+}
