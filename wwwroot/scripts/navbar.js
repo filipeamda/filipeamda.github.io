@@ -11,21 +11,21 @@
             return;
         }
 
-        // Register ScrollTrigger
         gsap.registerPlugin(ScrollTrigger);
 
-        // Set initial state
-        gsap.set(navbar, { backgroundColor: 'rgba(255, 0, 0, 0)' }); // Red for visibility
+        gsap.set(navbar, {
+            backgroundColor: 'rgba(18, 18, 18, 0.1)',
+            backdropFilter: 'blur(0px)'
+        });
 
-        // Animate background
         gsap.to(navbar, {
-            backgroundColor: 'rgba(255, 0, 0, 1)', // Fully opaque red
+            backgroundColor: 'rgba(18, 18, 18, 0.1)',
+            backdropFilter: 'blur(10px)',
             ease: 'none',
             scrollTrigger: {
                 trigger: document.body,
-                start: 'top top',
-                end: '500px top', // Longer range for testing
-                scrub: true,
+                start: '30px top',
+                end: '500px top',
                 toggleActions: 'play none none reverse'
             }
         });
