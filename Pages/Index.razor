@@ -5,7 +5,6 @@
     <div class="container text-center">
         <h1 class="display-4">Welcome to My Portfolio</h1>
         <p class="lead">Hi, I'm a C# developer crafting innovative solutions with .NET and Blazor.</p>
-        <a href="#projects" class="btn btn-primary btn-lg">Explore My Projects</a>
     </div>
 </div>
 
@@ -29,24 +28,24 @@
     </div>
 </div>
 
-<div id="projects" class="my-5 animate__animated animate__fadeIn">
+<div id="experience" class="my-5 animate__animated animate__fadeIn">
     <div class="container">
-        <h2>My Projects</h2>
+        <h2>My experience</h2>
         <div class="row">
-            @if (projects == null)
+            @if (experiences == null)
             {
                 <p>Loading...</p>
             }
             else
             {
-                @foreach (var project in projects)
+                @foreach (var experience in experiences)
                 {
                     <div class="col-md-4 mb-4">
                         <div class="card shadow-sm h-100">
                             <div class="card-body">
-                                <h4 class="card-title">@project.Title</h4>
-                                <p class="card-text">@project.Description</p>
-                                <a href="@project.Link" class="btn btn-primary">View Project</a>
+                                <h4 class="card-title">@experience.Title</h4>
+                                <p class="card-text">@experience.Description</p>
+                                <a href="@experience.Link" class="btn btn-primary">View Experience</a>
                             </div>
                         </div>
                     </div>
@@ -84,17 +83,17 @@
 
 @code {
     private Bio? bio;
-    private List<Project>? projects;
+    private List<Experience>? experiences;
     private List<Skill>? skills;
 
     protected override async Task OnInitializedAsync()
     {
         bio = await HttpClient.GetFromJsonAsync<Bio>("data/bio.json");
-        projects = await HttpClient.GetFromJsonAsync<List<Project>>("data/projects.json");
+        experiences = await HttpClient.GetFromJsonAsync<List<Experience>>("data/experience.json");
         skills = await HttpClient.GetFromJsonAsync<List<Skill>>("data/skills.json");
     }
 
     private record Bio(string Name, string Title, string Summary, string LinkedIn);
-    private record Project(string Title, string Description, string Link);
+    private record Experience(string Title, string Description, string Link);
     private record Skill(string Name, string Proficiency);
 }
