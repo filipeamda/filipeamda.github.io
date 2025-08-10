@@ -30,7 +30,7 @@
 
 <div id="experience" class="my-5 animate__animated animate__fadeIn">
     <div class="container">
-        <h2>My experience</h2>
+        <h2>Experience</h2>
         <div class="row">
             @if (experiences == null)
             {
@@ -44,8 +44,11 @@
                         <div class="card shadow-sm h-100">
                             <div class="card-body">
                                 <h4 class="card-title">@experience.Title</h4>
+                                <h5 class="card-title">@experience.From</h5>
+                                <h5 class="card-title">@experience.To</h5>
+                                <p class="card-text">@experience.Company</p>
+                                <p class="card-text">@experience.Location</p>
                                 <p class="card-text">@experience.Description</p>
-                                <a href="@experience.Link" class="btn btn-primary">View Experience</a>
                             </div>
                         </div>
                     </div>
@@ -94,6 +97,6 @@
     }
 
     private record Bio(string Name, string Title, string Summary, string LinkedIn);
-    private record Experience(string Title, string Description, string Link);
+    private record Experience(string Title, string From, string To, string Company, string Location, string Description);
     private record Skill(string Name, string Proficiency);
 }
