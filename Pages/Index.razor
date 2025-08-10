@@ -1,14 +1,15 @@
 ﻿@page "/"
 @inject HttpClient HttpClient
+@inject IJSRuntime JSRuntime
 
-<div id="home" class="hero-section my-5 animate__animated animate__fadeIn">
+<div id="home" class="hero-section my-5 animate__animated animate__fadeInUp">
     <div class="container text-center">
         <h1 class="display-4">Welcome to My Portfolio</h1>
         <p class="lead">Hi, I'm a C# developer crafting innovative solutions with .NET and Blazor.</p>
     </div>
 </div>
 
-<div id="bio" class="my-5 animate__animated animate__fadeIn">
+<div id="bio" class="my-5">
     <div class="container">
         @if (bio == null)
         {
@@ -16,7 +17,7 @@
         }
         else
         {
-            <div class="card shadow-sm">
+            <div class="card shadow-sm animate__animated animate__fadeInUp">
                 <div class="card-body">
                     <h2 class="card-title">@bio.Name</h2>
                     <h4 class="card-subtitle mb-2 text-muted">@bio.Title</h4>
@@ -28,37 +29,34 @@
     </div>
 </div>
 
-<div id="experience" class="my-5 animate__animated animate__fadeIn">
+<div id="experience" class="my-5">
     <div class="container">
         <h2>Experience</h2>
-        <div class="row">
-            @if (experiences == null)
-            {
-                <p>Loading...</p>
-            }
-            else
-            {
-                @foreach (var experience in experiences)
+        @if (experiences == null)
+        {
+            <p>Loading...</p>
+        }
+        else
+        {
+            <div class="timeline">
+                @foreach (var experience in experiences.OrderBy(e => e.From))
                 {
-                    <div class="col-md-4 mb-4">
-                        <div class="card shadow-sm h-100">
-                            <div class="card-body">
-                                <h4 class="card-title">@experience.Title</h4>
-                                <h5 class="card-title">@experience.From</h5>
-                                <h5 class="card-title">@experience.To</h5>
-                                <p class="card-text">@experience.Company</p>
-                                <p class="card-text">@experience.Location</p>
-                                <p class="card-text">@experience.Description</p>
-                            </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4 class="card-title">@experience.Title</h4>
+                            <h5 class="card-title">@experience.From - @experience.To</h5>
+                            <p class="card-text">@experience.Company</p>
+                            <p class="card-text">@experience.Location</p>
+                            <p class="card-text">@experience.Description</p>
                         </div>
                     </div>
                 }
-            }
-        </div>
+            </div>
+        }
     </div>
 </div>
 
-<div id="skills" class="my-5 animate__animated animate__fadeIn">
+<div id="skills" class="my-5">
     <div class="container">
         <h2>Skills</h2>
         @if (skills == null)
@@ -67,20 +65,10 @@
         }
         else
         {
-            <div class="row">
-                @foreach (var skill in skills)
-                {
-                    <div class="col-md-4 mb-3">
-                        <div class="card shadow-sm">
-                            <div class="card-body">
-                                <h5 class="card-title">@skill.Name</h5>
-                                <p class="card-text">Proficiency: @skill.Proficiency</p>
-                            </div>
-                        </div>
-                    </div>
-                }
+            <div class="skills-container">
+                <div class="tagcloud"></div>
             </div>
-            }
+        }
     </div>
 </div>
 
@@ -94,6 +82,19 @@
         bio = await HttpClient.GetFromJsonAsync<Bio>("data/bio.json");
         experiences = await HttpClient.GetFromJsonAsync<List<Experience>>("data/experience.json");
         skills = await HttpClient.GetFromJsonAsync<List<Skill>>("data/skills.json");
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (experiences != null)
+        {
+            await JSRuntime.InvokeVoidAsync("initTimeline");
+        }
+        if (skills != null)
+        {
+            var skillNames = skills.Select(s => s.Name).ToList();
+            await JSRuntime.InvokeVoidAsync("initSkillCloud", skillNames);
+        }
     }
 
     private record Bio(string Name, string Title, string Summary, string LinkedIn);
