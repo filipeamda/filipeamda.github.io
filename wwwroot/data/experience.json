@@ -1,12 +1,50 @@
 [
   {
-    "title": "C# App",
-    "description": "A cool C# application built with .NET Core.",
-    "link": "https://github.com/yourusername/csharp-app"
+    "title": ".NET Developer",
+    "from": "04-2024",
+    "to": null,
+    "company": "Positioner",
+    "location": "Ticino, Switzerland (remote)",
+    "description": "As a software engineer at Positioner, I take part in the development and maintenance of multiple websites using .NET MVC with C#, with Umbraco as CMS. Developing internal solutions to drive efficiency in the company’s workflow is also part of my work. Additionally, I use Azure tools, such as App Service, Functions, and SQL Server, to ensure the websites and related services run flawlessly."
   },
   {
-    "title": "Blazor Portfolio",
-    "description": "My personal portfolio site built with Blazor.",
-    "link": "https://github.com/yourusername/portfolio"
+    "title": "Software Developer / Configurator",
+    "from": "10-2023",
+    "to": "04-2024",
+    "company": " Yarowa (through Forty2)",
+    "location": "Lisbon, Portugal",
+    "description": "As a developer / configurator at Yarowa, I write and edit JSON files to tailor the company’s software – a B2B digital marketplace and transaction platform – to each customer’s requirements. I have used and enhanced JSON Schema to optimize this process, as well as written automations with Puppeteer and Playwright to eliminate repetitive tasks that often need to be done."
+  },
+  {
+    "title": "Azure DevOps Support Engineer",
+    "from": "09-2022",
+    "to": "07-2023",
+    "company": "Microsoft",
+    "location": "Lisbon, Portugal",
+    "description": "As an Azure DevOps Support Engineer, I had the opportunity to help customers solve their issues with Azure DevOps Server / Services, a platform that enables agile software development and delivery. I also supported Azure DevTest Labs and Azure Load Testing, two services that allow customers to test and optimize their applications in the cloud. To do this, I became familiar with the tools I supported, as well as other Azure tools, such as Azure VM and Azure SQL Server, that are essential for cloud computing. I enjoyed working with customers and Microsoft resources, using my technical skills and problem-solving abilities to achieve effective solutions and customer satisfaction."
+  },
+  {
+    "title": ".NET Developer",
+    "from": "04-2024",
+    "to": null,
+    "company": "WorldIT, Consulting Services",
+    "location": "Lisbon, Portugal",
+    "description": "As a .NET Full Stack Developer, I created and maintained web applications using various technologies and frameworks. I participated in several projects, working both independently and as part of a team. I used C#, .NET, SQL Server, Blazor, Git, Entity Framework, HTML, CSS, Bootstrap, jQuery, XML, and JavaScript to build high-quality and user-friendly web solutions. I applied my skills and knowledge to every stage of the development process, from design to deployment. I enjoyed working with different technologies and learning new things along the way."
+  },
+  {
+    "title": "MSc’s dissertation",
+    "from": "04-2024",
+    "to": null,
+    "company": "WorldIT, Consulting Services",
+    "location": "Lisbon, Portugal",
+    "description": " For my MSc’s dissertation, I developed an innovative tool that enhances the web browsing experience by providing internet connection fault tolerance. The tool uses next-page prediction to prefetch and cache the web pages that the user is likely to visit next, using a Service Worker written in JavaScript. The tool can then display the cached pages even if the internet connection is lost or unstable. I also created a web benchmarking page to evaluate the performance and accuracy of the tool, using HTML, CSS, JavaScript, and Bootstrap. I wrote my dissertation in Latex, following the academic standards and guidelines."
+  },
+  {
+    "title": "Internship",
+    "from": "11-2017",
+    "to": "02-2018",
+    "company": "WorldIT, Consulting Services",
+    "location": "Lisbon, Portugal",
+    "description": " As an Intern at WorldIT, Consulting Services, I had the chance to work on an exciting project that involved developing Augmented Reality (AR) street navigation native applications for Android and iOS. These applications used the device’s camera to overlay AR markers on the street roads, guiding the user to their destination in a fun and interactive way. I used Swift for iOS, Java for Android, ARKit and ARCore for AR, Google Maps SDK for maps, and Git for version control. I learned a lot about AR development and mobile platforms, as well as how to work with the most recent frameworks to deliver quality products."
   }
 ]
