@@ -1,14 +1,38 @@
 [
   {
     "name": "C#",
-    "proficiency": "Advanced"
+    "proficiency": "5"
   },
   {
     "name": "Blazor",
-    "proficiency": "Intermediate"
+    "proficiency": "2"
   },
   {
-    "name": "ASP.NET Core",
-    "proficiency": "Advanced"
+    "name": ".NET Core",
+    "proficiency": "4"
+  },
+  {
+    "name": "SQL Server",
+    "proficiency": "3"
+  },
+    {
+    "name": "Umbraco",
+    "proficiency": "5"
+  },
+    {
+    "name": "Azure",
+    "proficiency": "5"
+  },
+  {
+    "name": "JavaScript",
+    "proficiency": "4"
+  },
+  {
+    "name": "CSS",
+    "proficiency": "3"
+  },
+  {
+    "name": "CI/CD",
+    "proficiency": "4"
   }
 ]
