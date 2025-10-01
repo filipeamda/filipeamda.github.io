@@ -14,9 +14,22 @@ body {
     background-color: #121212;
 }
 
+.navbar .container {
+    padding-block: 1rem;
+}
+
+.navbar-brand {
+    display: flex;
+    gap: 15px;
+}
+
 .navbar-brand, .nav-link {
     color: #e0e0e0 !important;
     transition: color 0.3s ease;
+}
+
+.navbar-brand .separator {
+    color:#00aaff
 }
 
     .nav-link:hover {
@@ -27,6 +40,14 @@ body {
         color: #2196f3 !important;
         font-weight: 700;
     }
+
+.socials {
+    font-size: 1.3rem;
+}
+
+.socials a {
+    color: white;
+}
 
 .hero-section {
     padding: 4rem 0;
@@ -61,7 +82,6 @@ body {
 .timeline-item {
     position: relative;
     width: 50%;
-    padding: 1rem 2rem;
     opacity: 0;
 }
 

@@ -1,31 +1,45 @@
 ﻿@inject IJSRuntime JS
+@inject HttpClient HttpClient
 
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="#">Filipe Almeida</a>
+        <a class="navbar-brand" href="#">
+            <span>Filipe Almeida</span>
+            @if (bio != null)
+            {
+                <span class="separator">|</span>
+                <span>@bio.Title</span>
+            }
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
+                @* <li class="nav-item">
                     <NavLink class="nav-link" href="#home" Match="NavLinkMatch.All">Home</NavLink>
-                </li>
-                <li class="nav-item">
-                    <NavLink class="nav-link" href="#bio">Bio</NavLink>
                 </li>
                 <li class="nav-item">
                     <NavLink class="nav-link" href="#experience">Experience</NavLink>
                 </li>
                 <li class="nav-item">
                     <NavLink class="nav-link" href="#skills">Skills</NavLink>
-                </li>
+                </li> *@
             </ul>
+            @if (bio != null) {
+                <div class="socials">
+                    <a href="@bio.LinkedIn" target="_blank">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                </div>
+            }
         </div>
     </div>
 </nav>
 
 @code {
+    private Bio? bio;
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
@@ -33,4 +47,11 @@
             await JS.InvokeVoidAsync("navbarScroll.init");
         }
     }
+
+    protected override async Task OnInitializedAsync()
+    {
+        bio = await HttpClient.GetFromJsonAsync<Bio>("data/bio.json");
+    }
+
+    private record Bio(string Name, string Title, string Summary, string LinkedIn);
 }
