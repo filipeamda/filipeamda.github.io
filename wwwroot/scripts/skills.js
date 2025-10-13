@@ -1,6 +1,6 @@
 function initSkillCloud(skills) {
     console.log("Initializing skill cloud with skills:", skills);
-    const container = '.tagcloud';
+    const container = '.skills-container';
     const texts = skills;
     const options = {
         radius: 250,
