@@ -11,12 +11,20 @@
                 <span class="left-span">@bio.Title</span>
             }
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        @if (bio != null) {
+            <div class="socials">
+                <a href="@bio.LinkedIn" target="_blank">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+            </div>
+        }
+
+        @* <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
+        </button> *@
+        @* <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                @* <li class="nav-item">
+                <li class="nav-item">
                     <NavLink class="nav-link" href="#home" Match="NavLinkMatch.All">Home</NavLink>
                 </li>
                 <li class="nav-item">
@@ -24,7 +32,7 @@
                 </li>
                 <li class="nav-item">
                     <NavLink class="nav-link" href="#skills">Skills</NavLink>
-                </li> *@
+                </li>
             </ul>
             @if (bio != null) {
                 <div class="socials">
@@ -33,7 +41,7 @@
                     </a>
                 </div>
             }
-        </div>
+        </div> *@
     </div>
 </nav>
 
