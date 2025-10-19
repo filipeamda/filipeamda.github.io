@@ -10,7 +10,6 @@ function initSkillCloud(skills) {
         return;
     }
 
-    console.log("Initializing skill cloud with skills:", skills);
     const texts = [];
     skills.forEach(skill => {
         texts.push(skill.name);
@@ -25,5 +24,4 @@ function initSkillCloud(skills) {
     };
 
     TagCloud(container, texts, options);
-    console.log("Skill cloud initialized.");
 }
