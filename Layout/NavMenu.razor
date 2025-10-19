@@ -1,4 +1,5 @@
-﻿@inject IJSRuntime JS
+@using filipealmeida.Models
+@inject IJSRuntime JS
 @inject HttpClient HttpClient
 
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
@@ -13,7 +14,7 @@
         </a>
         @if (bio != null) {
             <div class="socials">
-                <a href="@bio.LinkedIn" target="_blank">
+                <a href="@bio.LinkedIn" target="_blank" aria-label="LinkedIn profile of Filipe Almeida" role="link">
                     <i class="fa-brands fa-linkedin"></i>
                 </a>
             </div>
@@ -60,6 +61,4 @@
     {
         bio = await HttpClient.GetFromJsonAsync<Bio>("data/bio.json");
     }
-
-    private record Bio(string Name, string Title, string Summary, string LinkedIn);
 }

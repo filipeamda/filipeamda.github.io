@@ -1,8 +1,9 @@
-﻿@page "/"
+@page "/"
+@using filipealmeida.Models
 @inject HttpClient HttpClient
 @inject IJSRuntime JSRuntime
 
-<div id="home" class="hero-section my-5 animate__animated animate__fadeInUp">
+<div id="home" class="hero-section my-5 animate__animated animate__fadeInUp" role="region" aria-label="Hero Section">
     @if (bio != null)
     {
         <div class="container text-center">
@@ -12,7 +13,7 @@
     }
 </div>
 
-<div id="experience" class="my-5">
+<div id="experience" class="my-5" role="region" aria-label="Experience Section">
     <div class="container">
         <h2>Experience</h2>
         @if (experiences == null)
@@ -24,7 +25,7 @@
             <div class="timeline">
                 @foreach (var experience in experiences.OrderByDescending(e => e.From))
                 {
-                    <div class="timeline-item">
+                    <div class="timeline-item" role="article" aria-label="@experience.Title at @experience.Company">
                         <div class="timeline-content">
                             <p>
                                 <h4 class="card-title">@experience.Title</h4>
@@ -40,7 +41,7 @@
     </div>
 </div>
 
-<div id="skills" class="my-5">
+<div id="skills" class="my-5" role="region" aria-label="Skills Section">
     <div class="container">
         <h2>Skills</h2>
         @if (skills == null)
@@ -74,12 +75,7 @@
         }
         if (skills != null)
         {
-            var skillNames = skills.Select(s => s.Name).ToList();
-            await JSRuntime.InvokeVoidAsync("initSkillCloud", skillNames);
+            await JSRuntime.InvokeVoidAsync("initSkillCloud", skills);
         }
     }
-
-    private record Bio(string Name, string Title, string Summary, string LinkedIn);
-    private record Experience(string Title, DateOnly From, DateOnly? To, string Company, string Location, string Description);
-    private record Skill(string Name, string Proficiency);
 }

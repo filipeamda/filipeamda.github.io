@@ -1,9 +1,19 @@
 function initTimeline() {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+        console.error('GSAP or ScrollTrigger not loaded');
+        return;
+    }
+
     console.log("Initializing timeline...");
     setTimeout(() => {
         gsap.registerPlugin(ScrollTrigger);
 
         const items = gsap.utils.toArray(".timeline-item");
+
+        if (items.length === 0) {
+            console.warn("No timeline items found");
+            return;
+        }
 
         items.forEach((item, index) => {
             const direction = index % 2 === 0 ? -1 : 1;

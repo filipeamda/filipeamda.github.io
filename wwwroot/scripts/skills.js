@@ -1,7 +1,21 @@
 function initSkillCloud(skills) {
+    if (typeof TagCloud === 'undefined') {
+        console.error('TagCloud not loaded');
+        return;
+    }
+
+    const container = document.querySelector('.skills-container');
+    if (!container) {
+        console.error('Skills container element not found');
+        return;
+    }
+
     console.log("Initializing skill cloud with skills:", skills);
-    const container = '.skills-container';
-    const texts = skills;
+    const texts = [];
+    skills.forEach(skill => {
+        texts.push(skill.name);
+    });
+
     const options = {
         radius: 250,
         maxSpeed: 'normal',
