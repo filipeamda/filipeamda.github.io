@@ -16,9 +16,9 @@ function initSkillCloud(skills) {
     });
 
     const options = {
-        radius: 250,
+        radius: 200,
         maxSpeed: 'normal',
-        initSpeed: 'normal',
+        initSpeed: 'slow',
         direction: 135,
         keep: true
     };
