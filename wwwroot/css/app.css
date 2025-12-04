@@ -118,7 +118,6 @@ h2 {
 }
 
 .timeline {
-    overflow: hidden;
     position: relative;
     padding: 2rem 0;
 }
@@ -151,7 +150,10 @@ h2 {
 }
 
 .timeline-content {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     padding: 1.5rem;
     border-radius: 10px;
 }
