@@ -14,13 +14,11 @@
         gsap.registerPlugin(ScrollTrigger);
 
         gsap.set(navbar, {
-            backgroundColor: 'rgba(18, 18, 18, 0.1)',
-            backdropFilter: 'blur(0px)'
+            '--navbar-bg': 'rgba(18, 18, 18, 0.1)'
         });
 
         gsap.to(navbar, {
-            backgroundColor: 'rgba(18, 18, 18, 0.1)',
-            backdropFilter: 'blur(10px)',
+            '--navbar-bg': 'rgba(18, 18, 18, 0.3)',
             ease: 'none',
             scrollTrigger: {
                 trigger: document.body,
