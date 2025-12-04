@@ -18,6 +18,7 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
+    overflow-x: hidden;
 }
 
 .page {
@@ -231,6 +232,7 @@ a, .btn-link {
 
 .content {
     padding-top: 2rem;
+    padding-bottom: 5rem;
     background: linear-gradient(75deg, #004242, #367588, #008170);
 }
 
