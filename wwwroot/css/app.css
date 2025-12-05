@@ -134,6 +134,20 @@ h2 {
     background-color: #333;
 }
 
+.skill-pill {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 0.45rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    -webkit-backdrop-filter: brightness(1.2) saturate(2.5);
+    backdrop-filter: brightness(1.2) saturate(2.5);
+    color: var(--text-color-light);
+    border-radius: 20px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
 .timeline-item {
     position: relative;
     width: 50%;
@@ -170,31 +184,43 @@ h2 {
     background-color: var(--accent-color);
 }
 
-.timeline-item:nth-child(even)::after {
-    left: -8px;
-}
-
-.skills-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 400px;
-}
-
-.tagcloud {
-    max-width: 100% !important;
-    height: auto !important;
-}
-
-.tagcloud--item {
-    padding: 2px 5px;
-    color: var(--text-color);
+.scroll-to-top-button {
+    position: absolute;
+    bottom: -73px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 50px;
+    background-color: #333;
+    cursor: pointer;
+    z-index: 10;
     text-decoration: none;
+    transition: background-color 0.3s ease;
 }
 
-.tagcloud--item:hover {
-    color: var(--accent-color);
+.scroll-to-top-button::before,
+.scroll-to-top-button::after {
+    content: '';
+    position: absolute;
+    top: -5px; /* Position relative to the top of the button's line */
+    width: 2px; /* Arrowhead line width */
+    height: 17px; /* Arrowhead line length */
+    background-color: #333; /* Arrowhead line color */
 }
+
+.scroll-to-top-button::before {
+    left: -11.5px; /* Adjust position for left diagonal */
+    transform: rotate(44deg);
+    transform-origin: bottom right;
+}
+
+.scroll-to-top-button::after {
+    right: -11.5px; /* Adjust position for right diagonal */
+    transform: rotate(-44deg);
+    transform-origin: bottom left;
+}
+
+
 
 .card:hover {
     transform: translateY(-10px);

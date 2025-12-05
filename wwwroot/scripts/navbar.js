@@ -27,5 +27,11 @@
                 toggleActions: 'play none none reverse'
             }
         });
+    },
+    scrollToTop: function () {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     }
 };

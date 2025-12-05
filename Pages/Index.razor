@@ -22,14 +22,19 @@
         }
         else
         {
-            <div class="skills-container"></div>
+            <p style="text-align: center;">
+                @foreach (var skill in skills.OrderByDescending(s => int.Parse(s.Proficiency)))
+                {
+                    <span class="skill-pill">@skill.Name</span>
+                }
+            </p>
         }
     </div>
 </div>
 
 <div id="experience" class="my-5" role="region" aria-label="Experience Section">
     <div class="container">
-        <h2>Experience</h2>
+
         @if (experiences == null)
         {
             <p>Loading...</p>
@@ -51,6 +56,8 @@
                         </div>
                     </div>
                 }
+                <a id="scroll-to-top" class="scroll-to-top-button" @onclick="ScrollToTop">
+                </a>
             </div>
         }
     </div>
@@ -76,9 +83,10 @@
         {
             await JSRuntime.InvokeVoidAsync("initTimeline");
         }
-        if (skills != null)
-        {
-            await JSRuntime.InvokeVoidAsync("initSkillCloud", skills);
-        }
+    }
+
+    private async Task ScrollToTop()
+    {
+        await JSRuntime.InvokeVoidAsync("window.navbarScroll.scrollToTop");
     }
 }
