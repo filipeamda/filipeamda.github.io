@@ -7,12 +7,14 @@
 <div id="home" class="hero-section mt-5 animate__animated animate__fadeInUp" role="region" aria-label="Hero Section">
     @if (bio != null)
     {
-        <div class="container text-center">
+        <div class="hero-container container text-center">
             <div class="portrait-container">
                 <img src="images/portrait.jpg" alt="Portrait" class="portrait-image" />
             </div>
-            <h1 class="display-4">@bio.Name</h1>
-            <p class="lead">@bio.Summary</p>
+            <div class="text-container">
+                <h1 class="display-4">@bio.Name</h1>
+                <p class="summary-text lead">@bio.Summary</p>
+            </div>
         </div>
     }
 </div>
