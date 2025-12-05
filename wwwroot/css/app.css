@@ -184,6 +184,11 @@ h2 {
     background-color: var(--accent-color);
 }
 
+.timeline-item:nth-child(even)::after {
+    left: -8px;
+    right: auto;
+}
+
 .scroll-to-top-wrapper {
     position: absolute;
     bottom: -73px;
