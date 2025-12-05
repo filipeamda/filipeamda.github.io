@@ -184,16 +184,26 @@ h2 {
     background-color: var(--accent-color);
 }
 
-.scroll-to-top-button {
+.scroll-to-top-wrapper {
     position: absolute;
     bottom: -73px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 60px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.scroll-to-top-button {
+    position: absolute;
+    top: 0;
     left: 50%;
     transform: translateX(-50%);
     width: 2px;
     height: 50px;
     background-color: #333;
-    cursor: pointer;
-    z-index: 10;
+    z-index: 9; /* Lower z-index than the wrapper */
     text-decoration: none;
     transition: background-color 0.3s ease;
 }
