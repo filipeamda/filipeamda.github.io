@@ -101,7 +101,20 @@ h2 {
 }
 
 .hero-section {
-    padding: 4rem 0;
+    padding-bottom: 4rem;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+.portrait-image {
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
 .card {

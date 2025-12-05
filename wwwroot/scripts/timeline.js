@@ -28,7 +28,8 @@ function initTimeline() {
                 scrollTrigger: {
                     trigger: item,
                     start: "top 80%",
-                    toggleActions: "play none none none"
+                    toggleActions: "play none none none",
+                    once: true
                 }
             }
         );
