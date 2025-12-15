@@ -36,7 +36,6 @@ h2 {
 }
 
 .navbar {
-    padding-bottom: 3rem;
     position: relative;
     width: 100vw;
 }
@@ -103,6 +102,7 @@ h2 {
 }
 
 .hero-section {
+    margin-top: 3rem;
     padding-bottom: 4rem;
     padding-top: 2rem;
 }
@@ -179,6 +179,10 @@ h2 {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
     font-size: 0.9rem;
     white-space: nowrap;
+}
+
+#experience {
+    margin-block: 3rem;
 }
 
 .timeline-item {
@@ -408,7 +412,9 @@ code {
 }
 
 @media (max-width: 992px) {
-
+    .content {
+        padding-top: 0;
+    }
     .navbar-brand .separator {
         display: none;
     }
@@ -441,22 +447,35 @@ code {
     .timeline::before {
         display: none;
     }
+    .hero-section {
+        padding-bottom: 2rem;
+        padding-top: 0;
+        margin-top: 0;
+    }
     .hero-container {
         flex-direction: column;
         padding-inline: initial !important;
+        gap: 3rem;
     }
     .text-container {
         align-items: center;
+        gap: 0.5rem;
     }
     .summary-text {
         text-align: center;
     }
     .portrait-image {
         width: 100vw;
-        max-height: 500px;
+        max-height: 600px;
+        height: 46vh;
         position: relative;
+        object-position: 30% 25%;
         top: 0;
         left: 0;
         border-radius: 0;
+        box-shadow: initial;
+    }
+    #experience {
+        margin-top: 2rem;
     }
 }
