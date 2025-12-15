@@ -411,6 +411,12 @@ code {
     }
 }
 
+@media (max-width: 1200px) {
+    .hero-container {
+        padding-inline: 0 !important;
+    }
+}
+
 @media (max-width: 992px) {
     .content {
         padding-top: 0;
@@ -469,13 +475,23 @@ code {
         max-height: 600px;
         height: 46vh;
         position: relative;
-        object-position: 30% 25%;
+        object-position: 30% 35%;
         top: 0;
         left: 0;
         border-radius: 0;
         box-shadow: initial;
     }
     #experience {
-        margin-top: 2rem;
+        margin-top: 2rem !important;
+    }
+    .scroll-to-top-button,
+    .scroll-to-top-button::before,
+    .scroll-to-top-button::after {
+        background-color: var(--bs-body-color);
+    }
+}
+@media (max-width: 768px) {
+    .portrait-image {
+        object-position: 30% 25%;
     }
 }
