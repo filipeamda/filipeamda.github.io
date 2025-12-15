@@ -23,6 +23,7 @@ body {
 
 .page {
     background-color: var(--background-color);
+    overflow-x: hidden;
 }
 
 h2 {
@@ -37,6 +38,7 @@ h2 {
 .navbar {
     padding-bottom: 3rem;
     position: relative;
+    width: 100vw;
 }
 
 .navbar::before {
