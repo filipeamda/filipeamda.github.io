@@ -434,6 +434,9 @@ code {
         gap: 5px;
         font-size: 1.1rem;
     }
+    .timeline {
+        padding-bottom: 1px;
+    }
     .timeline-item {
         width: 100% !important;
         left: 0 !important;
@@ -487,7 +490,7 @@ code {
     .scroll-to-top-button,
     .scroll-to-top-button::before,
     .scroll-to-top-button::after {
-        background-color: var(--bs-body-color);
+        background-color: var(--accent-color);
     }
 }
 @media (max-width: 768px) {
