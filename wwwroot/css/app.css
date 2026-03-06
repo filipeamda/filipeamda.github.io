@@ -1,11 +1,12 @@
 :root {
-    --primary-color: #2196f3;
-    --primary-color-darker: #1976d2;
-    --background-color: #121212;
-    --surface-color: #1a1a1a;
-    --text-color: #e0e0e0;
+    --primary-color: #00aaff;
+    --primary-color-darker: #0077b6;
+    --background-color: #2c2c2c;
+    --surface-color: #383838;
+    --text-color: #f0f0f0;
     --text-color-light: #ffffff;
-    --accent-color: #00aaff;
+    --accent-color: #00d4ff;
+    --navbar-bg: rgba(44, 44, 44, 0.85);
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
@@ -124,7 +125,6 @@ h2 {
     height: 390px;
     border-radius: 50%;
     object-fit: cover;
-    box-shadow: 0 6px 19px rgba(0, 0, 0, 0.4);
 }
 
 .text-container {
@@ -138,13 +138,17 @@ h2 {
 }
 
 .card {
-    background-color: var(--surface-color);
+    background-color: rgba(20, 20, 20, 0.8);
+    backdrop-filter: blur(15px);
     color: var(--text-color);
     border: none;
     border-radius: 15px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: box-shadow 0.5s ease;
     overflow: hidden;
+}
+
+.card:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
 
 .card-text.description {
@@ -164,21 +168,26 @@ h2 {
     transform: translateX(-50%);
     width: 2px;
     height: 100%;
-    background-color: #333;
+    background-color: #111;
 }
 
 .skill-pill {
     display: inline-block;
     padding: 0.5rem 1rem;
     margin: 0.45rem;
-    background-color: rgba(0, 0, 0, 0.6);
-    -webkit-backdrop-filter: brightness(1.2) saturate(2.5);
-    backdrop-filter: brightness(1.2) saturate(2.5);
+    background-color: rgba(30, 30, 30, 0.7);
+    border: none;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
     color: var(--text-color-light);
     border-radius: 20px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
     font-size: 0.9rem;
     white-space: nowrap;
+    transition: all 0.5s ease;
+}
+
+.skill-pill:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 #experience {
@@ -202,12 +211,16 @@ h2 {
 }
 
 .timeline-content {
-    background-color: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    background-color: rgba(20, 20, 20, 0.8);
+    backdrop-filter: blur(15px);
+    border: none;
     padding: 1.5rem;
     border-radius: 10px;
+    transition: box-shadow 0.5s ease;
+}
+
+.timeline-content:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
 
 .timeline-item::after {
@@ -244,7 +257,7 @@ h2 {
     transform: translateX(-50%);
     width: 2px;
     height: 50px;
-    background-color: #333;
+    background-color: #111;
     z-index: 9; /* Lower z-index than the wrapper */
     text-decoration: none;
     transition: background-color 0.3s ease;
@@ -257,7 +270,7 @@ h2 {
     top: -5px; /* Position relative to the top of the button's line */
     width: 2px; /* Arrowhead line width */
     height: 17px; /* Arrowhead line length */
-    background-color: #333; /* Arrowhead line color */
+    background-color: #111; /* Arrowhead line color */
 }
 
 .scroll-to-top-button::before {
@@ -274,10 +287,7 @@ h2 {
 
 
 
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 32px rgba(0, 170, 255, 0.2);
-}
+/* .card:hover removed transform above */
 
 .list-group-item {
     background-color: transparent;
@@ -305,13 +315,13 @@ a, .btn-link {
 }
 
 .btn:focus, .btn:active:focus, .nav-link:focus, .form-control:focus, .form-check-input:focus {
-    box-shadow: 0 0 0 0.2rem rgba(33, 150, 243, 0.5);
+    outline: none;
 }
 
 .content {
     padding-top: 2rem;
     padding-bottom: 5rem;
-    background: linear-gradient(75deg, #004242, #367588, #008170);
+    background: linear-gradient(135deg, #2c2c2c 0%, #555555 100%);
 }
 
 .valid.modified:not([type=checkbox]) {
@@ -330,7 +340,6 @@ a, .btn-link {
     background: #1e1e1e;
     color: var(--text-color);
     bottom: 0;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.3);
     display: none;
     left: 0;
     padding: 0.6rem 1.25rem;

@@ -75,6 +75,7 @@
     private List<Experience>? experiences;
     private List<Skill>? skills;
     private CultureInfo? cultureInfo;
+    private bool hasInitializedTimeline = false;
 
     protected override async Task OnInitializedAsync()
     {
@@ -86,8 +87,9 @@
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        if (experiences != null)
+        if (experiences != null && !hasInitializedTimeline)
         {
+            hasInitializedTimeline = true;
             await JSRuntime.InvokeVoidAsync("initTimeline");
         }
     }
