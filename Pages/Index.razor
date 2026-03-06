@@ -51,11 +51,11 @@
                 {
                     <div class="timeline-item" role="article" aria-label="@experience.Title at @experience.Company">
                         <div class="timeline-content">
-                            <p>
-                                <h4 class="card-title">@experience.Title</h4>
-                                <h5 class="card-title">@experience.From.ToString("MMM yyyy", cultureInfo) - 
-                                @(experience.To == null ? "current" : experience.To.Value.ToString("MMM yyyy", cultureInfo))</h5>
-                            </p>
+                        <div class="mb-3">
+                            <h4 class="card-title">@experience.Title</h4>
+                            <h5 class="card-title">@experience.From.ToString("MMM yyyy", cultureInfo) - 
+                            @(experience.To == null ? "current" : experience.To.Value.ToString("MMM yyyy", cultureInfo))</h5>
+                        </div>
                             <p class="card-text">@experience.Company<br>@experience.Location</p>
                             <p class="card-text description"> @experience.Description</p>
                         </div>
