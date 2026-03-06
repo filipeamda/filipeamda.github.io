@@ -1,0 +1,30 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug (VS Code - Blazor WASM)",
+      "type": "blazorwasm",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "url": "https://localhost:7057",
+      "browser": "chrome",
+      "browserArgs": [
+        "--incognito"
+      ],
+      "inspectUri": "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}",
+      "hosted": false,
+      "preLaunchTask": "build"
+    },
+    {
+      "name": "Debug (Antigravity - Chrome)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "https://localhost:7057",
+      "webRoot": "${workspaceFolder}/wwwroot",
+      "runtimeArgs": [
+        "--incognito"
+      ],
+      "preLaunchTask": "build"
+    }
+  ]
+}
