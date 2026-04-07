@@ -1,19 +1,19 @@
 @page "/"
 @using System.Globalization
 @using filipealmeida.Models
-@inject HttpClient HttpClient
+@inject DataService DataService
 @inject IJSRuntime JSRuntime
 
 <div id="home" class="hero-section animate__animated animate__fadeInUp" role="region" aria-label="Hero Section">
-    @if (bio != null)
+    @if (DataService.Bio != null)
     {
         <div class="hero-container container text-center">
             <div class="portrait-container">
                 <img src="images/portrait.jpg" alt="Portrait" class="portrait-image" />
             </div>
             <div class="text-container">
-                <h1 class="display-4">@bio.Name</h1>
-                <p class="summary-text lead">@bio.Summary</p>
+                <h1 class="display-4">@DataService.Bio.Name</h1>
+                <p class="summary-text lead">@DataService.Bio.Summary</p>
             </div>
         </div>
     }
@@ -21,10 +21,10 @@
 
 <div id="skills" class="" role="region" aria-label="Skills Section">
     <div class="container">
-        @if (skills != null)
+        @if (DataService.Skills != null)
         {
             <p style="text-align: center;">
-                @foreach (var skill in skills.OrderByDescending(s => int.Parse(s.Proficiency)))
+                @foreach (var skill in DataService.Skills.OrderByDescending(s => int.Parse(s.Proficiency)))
                 {
                     <span class="skill-pill">@skill.Name</span>
                 }
@@ -36,10 +36,10 @@
 <div id="experience" role="region" aria-label="Experience Section">
     <div class="container">
 
-        @if (experiences != null)
+        @if (DataService.Experiences != null)
         {
             <div class="timeline">
-                @foreach (var experience in experiences.OrderByDescending(e => e.From))
+                @foreach (var experience in DataService.Experiences.OrderByDescending(e => e.From))
                 {
                     <div class="timeline-item" role="article" aria-label="@experience.Title at @experience.Company">
                         <div class="timeline-content">
@@ -63,30 +63,18 @@
 </div>
 
 @code {
-    private Bio? bio;
-    private List<Experience>? experiences;
-    private List<Skill>? skills;
     private CultureInfo? cultureInfo;
     private bool hasInitializedTimeline = false;
 
     protected override async Task OnInitializedAsync()
     {
         cultureInfo = new CultureInfo("en-US");
-        
-        var bioTask = HttpClient.GetFromJsonAsync<Bio>("data/bio.json");
-        var experiencesTask = HttpClient.GetFromJsonAsync<List<Experience>>("data/experience.json");
-        var skillsTask = HttpClient.GetFromJsonAsync<List<Skill>>("data/skills.json");
-
-        await Task.WhenAll(bioTask, experiencesTask, skillsTask);
-
-        bio = await bioTask;
-        experiences = await experiencesTask;
-        skills = await skillsTask;
+        await DataService.EnsureLoadedAsync();
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        if (experiences != null && !hasInitializedTimeline)
+        if (DataService.Experiences != null && !hasInitializedTimeline)
         {
             hasInitializedTimeline = true;
             await JSRuntime.InvokeVoidAsync("initTimeline");

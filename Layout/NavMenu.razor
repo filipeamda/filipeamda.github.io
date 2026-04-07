@@ -1,20 +1,20 @@
 @using filipealmeida.Models
 @inject IJSRuntime JS
-@inject HttpClient HttpClient
+@inject DataService DataService
 
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top px-4">
     <div class="container">
         <a class="navbar-brand" href="#">
             <span>Filipe Almeida</span>
-            @if (bio != null)
+            @if (DataService.Bio != null)
             {
                 <span class="separator">|</span>
-                <span class="left-span">@bio.Title</span>
+                <span class="left-span">@DataService.Bio.Title</span>
             }
         </a>
-        @if (bio != null) {
+        @if (DataService.Bio != null) {
             <div class="socials">
-                <a href="@bio.LinkedIn" target="_blank" aria-label="LinkedIn profile of Filipe Almeida" role="link">
+                <a href="@DataService.Bio.LinkedIn" target="_blank" aria-label="LinkedIn profile of Filipe Almeida" role="link">
                     <i class="fa-brands fa-linkedin"></i>
                 </a>
             </div>
@@ -35,9 +35,9 @@
                     <NavLink class="nav-link" href="#skills">Skills</NavLink>
                 </li>
             </ul>
-                    @if (bio != null) {
+                    @if (DataService.Bio != null) {
                         <div class="socials">
-                            <a href="@bio.LinkedIn" target="_blank" aria-label="LinkedIn profile of Filipe Almeida" role="link">
+                            <a href="@DataService.Bio.LinkedIn" target="_blank" aria-label="LinkedIn profile of Filipe Almeida" role="link">
                                 <i class="fa-brands fa-linkedin"></i>
                             </a>
                         </div>
@@ -46,8 +46,6 @@
 </nav>
 
 @code {
-    private Bio? bio;
-
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender)
@@ -58,6 +56,6 @@
 
     protected override async Task OnInitializedAsync()
     {
-        bio = await HttpClient.GetFromJsonAsync<Bio>("data/bio.json");
+        await DataService.EnsureLoadedAsync();
     }
 }
