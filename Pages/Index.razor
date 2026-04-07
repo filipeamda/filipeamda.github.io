@@ -21,11 +21,7 @@
 
 <div id="skills" class="" role="region" aria-label="Skills Section">
     <div class="container">
-        @if (skills == null)
-        {
-            <p>Loading...</p>
-        }
-        else
+        @if (skills != null)
         {
             <p style="text-align: center;">
                 @foreach (var skill in skills.OrderByDescending(s => int.Parse(s.Proficiency)))
@@ -40,11 +36,7 @@
 <div id="experience" role="region" aria-label="Experience Section">
     <div class="container">
 
-        @if (experiences == null)
-        {
-            <p>Loading...</p>
-        }
-        else
+        @if (experiences != null)
         {
             <div class="timeline">
                 @foreach (var experience in experiences.OrderByDescending(e => e.From))
@@ -79,10 +71,17 @@
 
     protected override async Task OnInitializedAsync()
     {
-        bio = await HttpClient.GetFromJsonAsync<Bio>("data/bio.json");
-        experiences = await HttpClient.GetFromJsonAsync<List<Experience>>("data/experience.json");
-        skills = await HttpClient.GetFromJsonAsync<List<Skill>>("data/skills.json");
         cultureInfo = new CultureInfo("en-US");
+        
+        var bioTask = HttpClient.GetFromJsonAsync<Bio>("data/bio.json");
+        var experiencesTask = HttpClient.GetFromJsonAsync<List<Experience>>("data/experience.json");
+        var skillsTask = HttpClient.GetFromJsonAsync<List<Skill>>("data/skills.json");
+
+        await Task.WhenAll(bioTask, experiencesTask, skillsTask);
+
+        bio = await bioTask;
+        experiences = await experiencesTask;
+        skills = await skillsTask;
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
