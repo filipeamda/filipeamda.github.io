@@ -2,24 +2,13 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Debug (VS Code - Blazor WASM)",
+      "name": "Debug with Watch",
       "type": "blazorwasm",
       "request": "launch",
       "cwd": "${workspaceFolder}/filipealmeida",
-      "url": "https://localhost:7057",      
+      "url": "https://localhost:7057",
       "browser": "chrome",
       "preLaunchTask": "watch"
-    },
-    {
-      "name": "Debug (Antigravity - Chrome)",
-      "type": "chrome",
-      "request": "launch",
-      "url": "https://localhost:7057",
-      "webRoot": "${workspaceFolder}/filipealmeida/wwwroot",
-      "runtimeArgs": [
-        "--incognito"
-      ],
-      "preLaunchTask": "build"
     }
   ]
 }

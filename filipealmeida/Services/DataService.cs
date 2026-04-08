@@ -24,8 +24,6 @@ public class DataService
         var experiencesTask = _http.GetFromJsonAsync<List<Experience>>("data/experience.json");
         var skillsTask = _http.GetFromJsonAsync<List<Skill>>("data/skills.json");
 
-        await Task.WhenAll(bioTask, experiencesTask, skillsTask);
-
         _bio = await bioTask;
         _experiences = await experiencesTask;
         _skills = await skillsTask;
