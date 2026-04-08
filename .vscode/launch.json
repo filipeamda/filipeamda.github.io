@@ -5,22 +5,17 @@
       "name": "Debug (VS Code - Blazor WASM)",
       "type": "blazorwasm",
       "request": "launch",
-      "cwd": "${workspaceFolder}",
-      "url": "https://localhost:7057",
+      "cwd": "${workspaceFolder}/filipealmeida",
+      "url": "https://localhost:7057",      
       "browser": "chrome",
-      "browserArgs": [
-        "--incognito"
-      ],
-      "inspectUri": "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}",
-      "hosted": false,
-      "preLaunchTask": "build"
+      "preLaunchTask": "watch"
     },
     {
       "name": "Debug (Antigravity - Chrome)",
       "type": "chrome",
       "request": "launch",
       "url": "https://localhost:7057",
-      "webRoot": "${workspaceFolder}/wwwroot",
+      "webRoot": "${workspaceFolder}/filipealmeida/wwwroot",
       "runtimeArgs": [
         "--incognito"
       ],
