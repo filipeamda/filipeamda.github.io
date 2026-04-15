@@ -1,6 +1,6 @@
 [
   {
-    "title": ".NET Developer",
+    "title": "Software Engineer",
     "from": "2024-04-01",
     "to": null,
     "company": "Positioner",
@@ -8,12 +8,12 @@
     "description": "- Engineered and managed the full-stack development and maintenance for dozens of .NET Umbraco websites, ensuring feature delivery and high availability.\n\n- Optimized and maintained the company's Azure infrastructure, leveraging services like Azure App Service, Functions, and App Insights to achieve operational efficiency and continuous operation.\n\n- Designed and implemented robust REST APIs using C# and .NET to integrate hospitality systems, supporting critical business procedures.\n\n- Improved team development velocity by improving or introducing the usage of tools such as GitHub Workflows and Gemini CLI, to standardize best practices and automate tasks.\n\n- Supported company growth by providing technical analysis for new service offerings and contributing to expanding the market value proposition."
   },
   {
-    "title": "Software Developer / Configurator",
+    "title": "Software Engineer / Configurator",
     "from": "2023-10-01",
     "to": "2024-04-01",
     "company": "Yarowa (through Forty2)",
     "location": "Lisbon, Portugal",
-    "description": "- Delivered custom solutions by configuring the company’s proprietary JSON-based mechanism to accurately meet complex customer requirements.\n\n- Increased configuration efficiency and ensured solution quality by implementing testing and static validation tools, including Playwright, Puppeteer, and JSON Schema."
+    "description": "- Engineered an automated end-to-end testing suite using Playwright and Puppeteer to validate complex system deployments and eliminate manual QA overhead.\n\n- Implemented robust static validation utilizing JSON Schema to enforce data integrity and prevent regressions in customer-specific integrations."
   },
   {
     "title": "Azure DevOps Support Engineer",
@@ -24,7 +24,7 @@
     "description": "- Resolved complex customer issues across Azure DevOps Server and Services, ensuring the best experience of usage and migration for enterprise clients.\n\n- Provided expert support for optimization and testing services, including Azure DevTest Labs and Azure Load Testing.\n\n- Expanded foundational knowledge in essential cloud computing tools, including Azure VM and Azure SQL Server, to effectively diagnose and resolve customer issues across the Azure DevOps ecosystem."
   },
   {
-    "title": ".NET Developer",
+    "title": "Software Engineer",
     "from": "2020-09-01",
     "to": "2022-08-01",
     "company": "WorldIT, Consulting Services",
